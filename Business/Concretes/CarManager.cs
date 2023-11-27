@@ -1,7 +1,9 @@
 ﻿using Business.Abstracts;
+using Core.Entities;
 using DataAccess.Abstracts;
 using DataAccess.Concretes.EntityFramework;
 using Entities.Concretes;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,12 +18,22 @@ namespace Business.Concretes
 
         public CarManager(ICarDal carDal)
         {
+
             _carDal = carDal;
         }
 
         public void Add(Car car)
         {
-            _carDal.Add(car);
+            if (car.CarName.Length >= 2 && car.DailyPrice >= 0)
+            {
+                _carDal.Add(car);
+            }
+            else Environment.Exit(0);            
+        }
+
+        public void Delete(Car car)
+        {
+            _carDal.Delete(car);
         }
 
         public List<Car> GetAll()
@@ -32,16 +44,16 @@ namespace Business.Concretes
         public List<Car> GetCarsByBrandId(int id)
         {
             return _carDal.GetAll(c => c.BrandId == id);
-        }
-
-        public IEnumerable<Car?> GetCarsByBrandId()
-        {
-            throw new NotImplementedException();
-        }
+        }     
 
         public List<Car> GetCarsByColorId(int id)
         {
             return _carDal.GetAll(c => c.ColorId == id);
+        }
+
+        public void Update(Car car)
+        {
+            _carDal.Update(car);
         }
     }
 }
