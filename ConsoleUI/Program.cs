@@ -31,6 +31,13 @@ ColorManager colorManager = new ColorManager(new EfColorDal());
 //BrandGetAllTest(brandManager);
 //GetBrandByIdTest(brandManager);
 
+
+foreach (var car in carManager.GetCarDetails())
+{
+    Console.WriteLine(car.BrandName + " "  +car.CarName + " " + car.ColorName);
+}
+
+
 static void CarAddTest(CarManager carManager)
 {
     Car car1 = new Car();
@@ -57,6 +64,18 @@ static void DeleteCarTest(CarManager carManager)
     {
         Console.WriteLine(car.CarName);
     }
+}
+static void CarUpdateTest(CarManager carManager)
+{
+    Car car1 = new Car();
+    car1.Id = 1003;
+    car1.BrandId = 2;
+    car1.ColorId = 1;
+    car1.ModelYear = 2023;
+    car1.DailyPrice = 54870;
+    car1.CarName = "S680";
+    car1.Description = "2023 Model";
+    carManager.Update(car1);
 }
 static void CarGetAllTest(CarManager carManager)
 {
@@ -88,18 +107,7 @@ static void GetCarsByColorId(CarManager carManager)
         Console.WriteLine(car.CarName);
     }
 }
-static void CarUpdateTest(CarManager carManager)
-{
-    Car car1 = new Car();
-    car1.Id = 1003;
-    car1.BrandId = 2;
-    car1.ColorId = 1;
-    car1.ModelYear = 2023;
-    car1.DailyPrice = 54870;
-    car1.CarName = "S680";
-    car1.Description = "2023 Model";
-    carManager.Update(car1);
-}
+
 
 static void ColorAddTest(ColorManager colorManager)
 {
@@ -136,6 +144,7 @@ static void GetColorByIdTest(ColorManager colorManager)
         Console.WriteLine(color.ColorName);
     }
 }
+
 
 static void BrandAddTest(BrandManager brandManager)
 {
