@@ -3,6 +3,7 @@ using Core.Entities;
 using DataAccess.Abstracts;
 using DataAccess.Concretes.EntityFramework;
 using Entities.Concretes;
+using Entities.DTOs;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -39,6 +40,11 @@ namespace Business.Concretes
         public List<Car> GetAll()
         {
             return _carDal.GetAll();
+        }
+
+        public List<CarDetailDto> GetCarDetails()
+        {
+            return _carDal.GetCarDetails();
         }
 
         public List<Car> GetCarsByBrandId(int id)
