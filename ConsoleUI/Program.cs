@@ -14,6 +14,8 @@ ColorManager colorManager = new ColorManager(new EfColorDal());
 //CarGetAllTest(carManager);
 //GetCarsByBrandIdTest(carManager);
 //GetCarsByColorId(carManager);
+GetCarsDetailsTest(carManager);
+
 
 ///////////////////////////////////////////////////////////////////
 
@@ -30,12 +32,6 @@ ColorManager colorManager = new ColorManager(new EfColorDal());
 //BrandUpdateTest(brandManager);
 //BrandGetAllTest(brandManager);
 //GetBrandByIdTest(brandManager);
-
-
-foreach (var car in carManager.GetCarDetails())
-{
-    Console.WriteLine(car.BrandName + " "  +car.CarName + " " + car.ColorName);
-}
 
 
 static void CarAddTest(CarManager carManager)
@@ -107,6 +103,15 @@ static void GetCarsByColorId(CarManager carManager)
         Console.WriteLine(car.CarName);
     }
 }
+static void GetCarsDetailsTest(CarManager carManager)
+{
+    Console.WriteLine("--------------GetCarDetails----------------------");
+
+    foreach (var car in carManager.GetCarDetails())
+    {
+        Console.WriteLine(car.BrandName + " " + car.CarName + " " + car.ColorName);
+    }
+}
 
 
 static void ColorAddTest(ColorManager colorManager)
@@ -132,13 +137,17 @@ static void ColorUpdateTest(ColorManager colorManager)
 }
 static void ColorGetAllTest(ColorManager colorManager)
 {
+    Console.WriteLine("--------------ColorGetAll----------------------");
+
     foreach (var color in colorManager.GetAll())
-    {
+    {   
         Console.WriteLine(color.ColorName);
     }
 }
 static void GetColorByIdTest(ColorManager colorManager)
 {
+    Console.WriteLine("--------------GetColorById == 1----------------------");
+
     foreach (var color in colorManager.GetColorById(1))
     {
         Console.WriteLine(color.ColorName);
@@ -169,6 +178,8 @@ static void BrandUpdateTest(BrandManager brandManager)
 }
 static void BrandGetAllTest(BrandManager brandManager)
 {
+    Console.WriteLine("--------------GetAllBrand----------------------");
+
     foreach (var brand in brandManager.GetAll())
     {
         Console.WriteLine(brand.BrandName);
@@ -176,8 +187,11 @@ static void BrandGetAllTest(BrandManager brandManager)
 }
 static void GetBrandByIdTest(BrandManager brandManager)
 {
+    Console.WriteLine("--------------GetBrandById == 1 ----------------------");
+
     foreach (var brand in brandManager.GetBrandById(1))
     {
         Console.WriteLine(brand.BrandName);
     }
 }
+
