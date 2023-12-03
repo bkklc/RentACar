@@ -4,10 +4,14 @@ using DataAccess.Abstracts;
 using DataAccess.Concretes.EntityFramework;
 using DataAccess.Concretes.InMemory;
 using Entities.Concretes;
+using Microsoft.VisualBasic;
 
 CarManager carManager = new CarManager(new EfCarDal());
 BrandManager brandManager = new BrandManager(new EfBrandDal());
 ColorManager colorManager = new ColorManager(new EfColorDal());
+UserManager userManager = new UserManager(new EfUserDal());
+CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
+RentalManager rentalManager = new RentalManager(new EfRentalDal());
 
 //CarAddTest(carManager);
 //DeleteCarTest(carManager);
@@ -25,6 +29,15 @@ ColorManager colorManager = new ColorManager(new EfColorDal());
 ///////////////////////////////////////////////////////////////////
 
 //BrandGetAllTest(brandManager);
+/////////////////////////////////////////////
+
+//UserAddTest(userManager);
+//CustomerAddTest(customerManager);
+//RentalAddTest(rentalManager);
+
+//GetCustomerDetailsTest(customerManager);
+GetRentalDetailsTest(rentalManager);
+
 
 
 static void CarAddTest(CarManager carManager)
@@ -41,7 +54,7 @@ static void CarAddTest(CarManager carManager)
 }
 static void DeleteCarTest(CarManager carManager)
 {
-    Console.WriteLine("--------------Deleted Cars----------------------");    
+    Console.WriteLine("--------------Deleted Cars----------------------");
 
     foreach (var car in carManager.GetCarsByBrandId(2).Data)
     {
@@ -125,4 +138,65 @@ static void BrandGetAllTest(BrandManager brandManager)
     {
         Console.WriteLine(brand.BrandName);
     }
+}
+
+
+static void UserAddTest(UserManager userManager)
+{
+    User user1 = new User
+    {
+        FirstName = "Berk",
+        LastName = "Kılıç",
+        Email = "a@gmail.com",
+        Password = "Password",
+    };
+    userManager.Add(user1);
+}
+static void CustomerAddTest(CustomerManager customerManager)
+{
+    Customer customer1 = new Customer
+    {
+        UserId = 1,
+        CompanyName = "KLC",
+    };
+    customerManager.Add(customer1);
+}
+static void RentalAddTest(RentalManager rentalManager)
+{
+    Rental rental1 = new Rental
+    {
+        CarId = 1,
+        CustomerId = 1,
+        RentDate = new DateTime(2023, 12, 2, 23, 45, 49),
+        ReturnDate = new DateTime(2023, 12, 3, 23, 45, 49)
+    };
+    rentalManager.Add(rental1);
+}
+static void GetRentalDetailsTest(RentalManager rentalManager)
+{
+    var result = rentalManager.GetRentalDetails();
+
+    if (result.Success == true)
+    {
+        foreach (var rental in result.Data)
+        {
+            Console.WriteLine(rental.FirstName + " " + rental.LastName);
+            Console.WriteLine(rental.CarName + " " + rental.ModelYear + " " + rental.DailyPrice + " " + rental.RentDate +"/" + rental.ReturnDate);
+        }
+    }
+
+    else Console.WriteLine(result.Message);
+}
+static void GetCustomerDetailsTest(CustomerManager customerManager)
+{
+    var result = customerManager.GetCustomerDetails();
+
+    if (result.Success == true)
+    {
+        foreach (var customer in result.Data)
+        {
+            Console.WriteLine(customer.FirstName + " " + customer.LastName);
+        }
+    }
+    else Console.WriteLine(result.Message);
 }
