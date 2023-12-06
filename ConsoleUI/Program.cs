@@ -13,6 +13,10 @@ UserManager userManager = new UserManager(new EfUserDal());
 CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
 RentalManager rentalManager = new RentalManager(new EfRentalDal());
 
+//GetCarsById(carManager);
+
+
+
 //CarAddTest(carManager);
 //DeleteCarTest(carManager);
 //CarUpdateTest(carManager);
@@ -36,7 +40,7 @@ RentalManager rentalManager = new RentalManager(new EfRentalDal());
 //RentalAddTest(rentalManager);
 
 //GetCustomerDetailsTest(customerManager);
-GetRentalDetailsTest(rentalManager);
+//GetRentalDetailsTest(rentalManager);
 
 
 
@@ -181,7 +185,7 @@ static void GetRentalDetailsTest(RentalManager rentalManager)
         foreach (var rental in result.Data)
         {
             Console.WriteLine(rental.FirstName + " " + rental.LastName);
-            Console.WriteLine(rental.CarName + " " + rental.ModelYear + " " + rental.DailyPrice + " " + rental.RentDate +"/" + rental.ReturnDate);
+            Console.WriteLine(rental.CarName + " " + rental.ModelYear + " " + rental.DailyPrice + " " + rental.RentDate + "/" + rental.ReturnDate);
         }
     }
 
@@ -199,4 +203,14 @@ static void GetCustomerDetailsTest(CustomerManager customerManager)
         }
     }
     else Console.WriteLine(result.Message);
+}
+
+static void GetCarsById(CarManager carManager)
+{
+    Console.WriteLine("--------------GetCarsById----------------------");
+
+    foreach (var car in carManager.GetCarsById(1).Data)
+    {
+        Console.WriteLine(car.CarName);
+    }
 }
