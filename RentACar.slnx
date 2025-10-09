@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="RentACar.Application/RentACar.Application.csproj" />
+    <Project Path="RentACar.Domain/RentACar.Domain.csproj" />
+    <Project Path="RentACar.Infrastructure/RentACar.Infrastructure.csproj" />
+    <Project Path="RentACar.Persistence/RentACar.Persistence.csproj" />
+    <Project Path="RentACar.WebAPI/RentACar.WebAPI.csproj" />
+  </Folder>
+</Solution>
