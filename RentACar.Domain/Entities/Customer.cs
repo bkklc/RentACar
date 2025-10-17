@@ -4,7 +4,7 @@ using System.Text;
 
 namespace RentACar.Domain.Entities
 {
-    public class User : Entity<Guid>
+    public class Customer : Entity<Guid>
     {           
         public string FirstName { get; set; }
         public string LastName { get; set; }
