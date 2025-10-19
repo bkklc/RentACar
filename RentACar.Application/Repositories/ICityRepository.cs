@@ -4,9 +4,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace RentACar.Domain.Repositories
+namespace RentACar.Application.Repositories
 {
-    public interface IYearRepository : IRepository<Year, Guid>
+    public interface ICityRepository : IRepository<City, Guid>
     {
 
     }

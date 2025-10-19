@@ -1,6 +1,6 @@
 ﻿using RentACar.Core.Interfaces;
 using RentACar.Domain.Entities;
-using RentACar.Domain.Repositories;
+using RentACar.Application.Repositories;
 using RentACar.Persistence.Context;
 using System;
 using System.Collections.Generic;

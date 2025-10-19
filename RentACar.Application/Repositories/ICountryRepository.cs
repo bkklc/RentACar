@@ -4,10 +4,11 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace RentACar.Domain.Repositories
+namespace RentACar.Application.Repositories
 {
-    public interface IModelRepository : IRepository<Model, Guid>
+    public interface ICountryRepository : IRepository<Country, Guid>
     {
 
     }
 }
+ 

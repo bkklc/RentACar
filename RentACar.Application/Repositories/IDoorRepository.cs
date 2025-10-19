@@ -4,10 +4,10 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace RentACar.Domain.Repositories
+namespace RentACar.Application.Repositories
 {
-    public interface IBrandRepository : IRepository<Brand, Guid>
+    public interface IDoorRepository : IRepository<Door, Guid>
     {
-        
+
     }
 }

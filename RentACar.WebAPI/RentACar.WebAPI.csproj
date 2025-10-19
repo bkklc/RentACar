@@ -14,4 +14,10 @@
     <Folder Include="Controllers\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\RentACar.Application\RentACar.Application.csproj" />
+    <ProjectReference Include="..\RentACar.Domain\RentACar.Domain.csproj" />
+    <ProjectReference Include="..\RentACar.Persistence\RentACar.Persistence.csproj" />
+  </ItemGroup>
+
 </Project>

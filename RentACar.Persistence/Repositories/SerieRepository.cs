@@ -1,4 +1,5 @@
-﻿using RentACar.Core.Interfaces;
+﻿using RentACar.Application.Repositories;
+using RentACar.Core.Interfaces;
 using RentACar.Domain.Entities;
 using RentACar.Persistence.Context;
 using System;
@@ -7,7 +8,7 @@ using System.Text;
 
 namespace RentACar.Persistence.Repositories
 {
-    public class SerieRepository : RepositoryBase<Serie, Guid, RentACarDbContext>
+    public class SerieRepository : RepositoryBase<Serie, Guid, RentACarDbContext>, ISerieRepository
     {
         public SerieRepository(RentACarDbContext context) : base(context)
         {
