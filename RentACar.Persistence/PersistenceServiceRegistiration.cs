@@ -18,7 +18,7 @@ namespace RentACar.Persistence
             
             services.AddDbContext<RentACarDbContext>(options =>
                                                              options.UseSqlServer(
-                                                                 configuration.GetConnectionString("DefaultConnection")));
+                                                                 configuration.GetConnectionString("RentACar")));
 
             
             services.AddScoped<IBrandRepository, BrandRepository>();
