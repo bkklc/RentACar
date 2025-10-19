@@ -1,10 +1,11 @@
-﻿using System;
+﻿using RentACar.Core.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace RentACar.Domain.Entities
 {
-    public class Category : Entity<Guid>
+    public class Category : BaseEntity<Guid>
     {        
         public string Name { get; set; }
     }

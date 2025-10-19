@@ -1,6 +1,7 @@
 <Solution>
   <Folder Name="/src/">
     <Project Path="RentACar.Application/RentACar.Application.csproj" />
+    <Project Path="RentACar.Core/RentACar.Core.csproj" Id="0354d2f6-5680-46a6-8dd7-ea2fe8dcec97" />
     <Project Path="RentACar.Domain/RentACar.Domain.csproj" />
     <Project Path="RentACar.Infrastructure/RentACar.Infrastructure.csproj" />
     <Project Path="RentACar.Persistence/RentACar.Persistence.csproj" />

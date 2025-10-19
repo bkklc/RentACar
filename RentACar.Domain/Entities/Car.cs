@@ -1,10 +1,11 @@
-﻿using System;
+﻿using RentACar.Core.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace RentACar.Domain.Entities
 {
-    public class Car: Entity<Guid>
+    public class Car: BaseEntity<Guid>
     {                
         public Guid BrandId { get; set; }
         public Guid CapacityId { get; set; }

@@ -1,10 +1,11 @@
-﻿using System;
+﻿using RentACar.Core.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace RentACar.Domain.Entities
 {
-    public class Customer : Entity<Guid>
+    public class Customer : BaseEntity<Guid>
     {           
         public string FirstName { get; set; }
         public string LastName { get; set; }
