@@ -11,4 +11,62 @@
     <ProjectReference Include="..\RentACar.Domain\RentACar.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\Campaigns\Commands\" />
+    <Folder Include="Features\Campaigns\Dtos\" />
+    <Folder Include="Features\Campaigns\Queries\" />
+    <Folder Include="Features\Capacities\Commands\" />
+    <Folder Include="Features\Capacities\Dtos\" />
+    <Folder Include="Features\Capacities\Queries\" />
+    <Folder Include="Features\Cars\Commands\" />
+    <Folder Include="Features\Cars\Dtos\" />
+    <Folder Include="Features\Cars\Queries\" />
+    <Folder Include="Features\Categories\Commands\" />
+    <Folder Include="Features\Categories\Dtos\" />
+    <Folder Include="Features\Categories\Queries\" />
+    <Folder Include="Features\Cities\Commands\" />
+    <Folder Include="Features\Cities\Dtos\" />
+    <Folder Include="Features\Cities\Queries\" />
+    <Folder Include="Features\Colors\Commands\" />
+    <Folder Include="Features\Colors\Dtos\" />
+    <Folder Include="Features\Colors\Queries\" />
+    <Folder Include="Features\Countries\Commands\" />
+    <Folder Include="Features\Countries\Dtos\" />
+    <Folder Include="Features\Countries\Queries\" />
+    <Folder Include="Features\CustomerAddresses\Commands\" />
+    <Folder Include="Features\CustomerAddresses\Dtos\" />
+    <Folder Include="Features\CustomerAddresses\Queries\" />
+    <Folder Include="Features\Customers\Commands\" />
+    <Folder Include="Features\Customers\Dtos\" />
+    <Folder Include="Features\Customers\Queries\" />
+    <Folder Include="Features\DoorTypes\Commands\" />
+    <Folder Include="Features\DoorTypes\Dtos\" />
+    <Folder Include="Features\DoorTypes\Queries\" />
+    <Folder Include="Features\FuelTypes\Commands\" />
+    <Folder Include="Features\FuelTypes\Dtos\" />
+    <Folder Include="Features\FuelTypes\Queries\" />
+    <Folder Include="Features\GearTypes\Commands\" />
+    <Folder Include="Features\GearTypes\Dtos\" />
+    <Folder Include="Features\GearTypes\Queries\" />
+    <Folder Include="Features\Models\Commands\" />
+    <Folder Include="Features\Models\Dtos\" />
+    <Folder Include="Features\Models\Queries\" />
+    <Folder Include="Features\ModelYears\Dtos\" />
+    <Folder Include="Features\Rentals\Commands\" />
+    <Folder Include="Features\Rentals\Dtos\" />
+    <Folder Include="Features\Rentals\Queries\" />
+    <Folder Include="Features\Series\Commands\" />
+    <Folder Include="Features\Series\Dtos\" />
+    <Folder Include="Features\Series\Queries\" />
+    <Folder Include="Features\WheelDriveTypes\Commands\" />
+    <Folder Include="Features\WheelDriveTypes\Dtos\" />
+    <Folder Include="Features\WheelDriveTypes\Queries\" />
+    <Folder Include="Features\ModelYears\Commands\" />
+    <Folder Include="Features\ModelYears\Queries\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="13.0.0" />
+  </ItemGroup>
+
 </Project>

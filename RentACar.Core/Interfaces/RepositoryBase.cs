@@ -16,7 +16,7 @@ namespace RentACar.Core.Interfaces
         }
         public async Task<TEntity> AddAsync(TEntity entity)
         {
-            entity.CreatedDate = DateTime.UtcNow;            
+            entity.CreatedDate = DateTime.Now;
             await Context.AddAsync(entity);
             await Context.SaveChangesAsync();
             return entity;
@@ -25,7 +25,7 @@ namespace RentACar.Core.Interfaces
         public async Task<TEntity> DeleteAsync(TEntity entity)
         {
             //Soft Delete
-            entity.DeletedDate = DateTime.UtcNow;
+            entity.DeletedDate = DateTime.Now;
             Context.Update(entity);
             await Context.SaveChangesAsync();
             return entity;
@@ -48,7 +48,7 @@ namespace RentACar.Core.Interfaces
 
         public async Task<TEntity> UpdateAsync(TEntity entity)
         {
-            entity.UpdatedDate = DateTime.UtcNow;
+            entity.UpdatedDate = DateTime.Now;
             Context.Update(entity);
             await Context.SaveChangesAsync();
             return entity;

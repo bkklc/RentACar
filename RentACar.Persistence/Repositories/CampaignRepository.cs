@@ -1,4 +1,4 @@
-﻿using RentACar.Application.Repositories;
+﻿using RentACar.Application.Interfaces.Repositories;
 using RentACar.Core.Interfaces;
 using RentACar.Domain.Entities;
 using RentACar.Persistence.Context;

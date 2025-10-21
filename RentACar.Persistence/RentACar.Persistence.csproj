@@ -22,7 +22,6 @@
   <ItemGroup>
     <ProjectReference Include="..\RentACar.Application\RentACar.Application.csproj" />
     <ProjectReference Include="..\RentACar.Core\RentACar.Core.csproj" />
-    <ProjectReference Include="..\RentACar.Domain\RentACar.Domain.csproj" />
   </ItemGroup>
 
 </Project>

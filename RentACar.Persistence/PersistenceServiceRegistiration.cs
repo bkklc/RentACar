@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using RentACar.Application.Repositories;
+using RentACar.Application.Interfaces.Repositories;
 using RentACar.Persistence.Context;
 using RentACar.Persistence.Repositories;
 using System;
@@ -30,15 +30,15 @@ namespace RentACar.Persistence
             services.AddScoped<IColorRepository, ColorRepository>();
             services.AddScoped<ICountryRepository, CountryRepository>();
             services.AddScoped<ICustomerRepository, CustomerRepository>();
-            services.AddScoped<IDoorRepository, DoorRepository>();
+            services.AddScoped<IDoorTypesRepository, DoorTypesRepository>();
             services.AddScoped<IFuelTypeRepository, FuelTypeRepository>();
-            services.AddScoped<IGearRepository, GearRepository>();
+            services.AddScoped<IGearTypesRepository, GearTypesRepository>();
             services.AddScoped<IModelRepository, ModelRepository>();
             services.AddScoped<IRentalRepository, RentalRepository>();
             services.AddScoped<ISerieRepository, SerieRepository>();
-            services.AddScoped<IUserAddressRepository, UserAddressRepository>();
-            services.AddScoped<IWheelDriveRepository, WheelDriveRepository>();
-            services.AddScoped<IYearRepository, YearRepository>();
+            services.AddScoped<ICustomerAddressRepository, CustomerAddressRepository>();
+            services.AddScoped<IWheelDriveTypesRepository, WheelDriveTypesRepository>();
+            services.AddScoped<IModelYearRepository, ModelYearRepository>();
 
             return services;
         }
