@@ -6,7 +6,7 @@ using System.Text;
 
 namespace RentACar.Application.Interfaces.Repositories
 {
-    public interface IWheelDriveTypesRepository : IRepository<WheelDriveTypes, Guid>
+    public interface ISeatCapacityRepository : IRepository<SeatCapacity, Guid>
     {
 
     }

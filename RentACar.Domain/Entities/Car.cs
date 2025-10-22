@@ -7,17 +7,17 @@ namespace RentACar.Domain.Entities
 {
     public class Car: BaseEntity<Guid>
     {                
-        public Guid BrandId { get; set; }
-        public Guid CapacityId { get; set; }
-        public Guid CategoryId { get; set; }
+        public Guid BrandId { get; set; }        
+        public Guid BodyTypeId { get; set; }
         public Guid ColorId { get; set; }
-        public Guid DoorId { get; set; }
+        public Guid DoorTypeId { get; set; }
         public Guid FuelTypeId { get; set; }
-        public Guid GearId { get; set; }
+        public Guid GearTypeId { get; set; }
         public Guid ModelId { get; set; }
+        public Guid ModelYearId { get; set; }
+        public Guid SeatCapacityId { get; set; }
         public Guid SerieId { get; set; }        
-        public Guid WheelDriveId { get; set; }        
-        public Guid YearId { get; set; }
+        public Guid WheelDriveTypeId { get; set; }        
         public int EnginePower { get; set; }
         public int EngineCapacity { get; set; }
         public int TrunkCapacity { get; set; }

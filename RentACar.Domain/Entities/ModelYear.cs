@@ -7,6 +7,6 @@ namespace RentACar.Domain.Entities
 {
     public class ModelYear : BaseEntity<Guid>
     {       
-        public string YearName { get; set; }
+        public string Name { get; set; }
     }
 }

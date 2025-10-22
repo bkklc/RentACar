@@ -21,9 +21,9 @@ namespace RentACar.Application.Features.Brands.Queries
                 _brandRepository = brandRepository;
             }
 
-            public async Task<GetByIdBrandDto> Handle(GetByIdBrandQuery request, CancellationToken cancellationToken)
+            public async Task<GetByIdBrandDto> Handle(GetByIdBrandQuery getByIdBrandQuery, CancellationToken cancellationToken)
             {
-                Brand brand = await _brandRepository.GetByIdAsync(request.Id);
+                Brand brand = await _brandRepository.GetByIdAsync(getByIdBrandQuery.Id);
 
                 GetByIdBrandDto getByIdBrandDto = new GetByIdBrandDto
                 {

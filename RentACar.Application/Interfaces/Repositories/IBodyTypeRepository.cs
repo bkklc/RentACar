@@ -6,7 +6,7 @@ using System.Text;
 
 namespace RentACar.Application.Interfaces.Repositories
 {
-    public interface ICapacityRepository : IRepository<Capacity, Guid>
+    public interface IBodyTypeRepository : IRepository<BodyType, Guid>
     {
 
     }

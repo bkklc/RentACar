@@ -8,9 +8,9 @@ using RentACar.Application.Interfaces.Repositories;
 
 namespace RentACar.Persistence.Repositories
 {
-    public class DoorTypesRepository : RepositoryBase<DoorTypes, Guid, RentACarDbContext>, IDoorTypesRepository
+    public class DoorTypeRepository : RepositoryBase<DoorType, Guid, RentACarDbContext>, IDoorTypeRepository
     {
-        public DoorTypesRepository(RentACarDbContext context) : base(context)
+        public DoorTypeRepository(RentACarDbContext context) : base(context)
         {
 
         }

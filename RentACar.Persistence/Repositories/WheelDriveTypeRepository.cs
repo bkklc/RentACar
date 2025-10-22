@@ -8,10 +8,11 @@ using RentACar.Application.Interfaces.Repositories;
 
 namespace RentACar.Persistence.Repositories
 {
-    public class CapacityRepository : RepositoryBase<Capacity, Guid, RentACarDbContext>,  ICapacityRepository
+    public class WheelDriveTypeRepository : RepositoryBase<WheelDriveType, Guid, RentACarDbContext>, IWheelDriveTypeRepository
     {
-        public CapacityRepository(RentACarDbContext context) : base(context)
+        public WheelDriveTypeRepository(RentACarDbContext context) : base(context)
         {
+
         }
     }
 }

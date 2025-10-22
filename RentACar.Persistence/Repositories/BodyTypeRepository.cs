@@ -8,12 +8,11 @@ using RentACar.Application.Interfaces.Repositories;
 
 namespace RentACar.Persistence.Repositories
 {
-    public class GearTypesRepository : RepositoryBase<GearTypes, Guid, RentACarDbContext>, IGearTypesRepository
+    public class BodyTypeRepository : RepositoryBase<BodyType, Guid, RentACarDbContext>, IBodyTypeRepository
     {
-        public GearTypesRepository(RentACarDbContext context) : base(context)
+        public BodyTypeRepository(RentACarDbContext context) : base(context)
         {
 
         }
-    
     }
 }

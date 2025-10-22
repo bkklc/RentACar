@@ -23,14 +23,14 @@ namespace RentACar.Application.Features.Brands.Commands
                 _brandRepository = brandRepository;
             }
 
-            public async Task<DeleteBrandDto> Handle(DeleteBrandCommand request, CancellationToken cancellationToken)
+            public async Task<DeleteBrandDto> Handle(DeleteBrandCommand deleteBrandCommand, CancellationToken cancellationToken)
             {
-                Brand brand = _brandRepository.GetByIdAsync(request.Id).Result;
+                Brand brand = _brandRepository.GetByIdAsync(deleteBrandCommand.Id).Result;
                 await _brandRepository.DeleteAsync(brand);
                 DeleteBrandDto deleteBrandDto = new()
                 {
                     Id = brand.Id,
-                    BrandName = brand.Name,
+                    Name = brand.Name,
                     DeletedDate = DateTime.UtcNow
                 };
                 return deleteBrandDto;

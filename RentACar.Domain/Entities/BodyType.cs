@@ -5,9 +5,8 @@ using System.Text;
 
 namespace RentACar.Domain.Entities
 {
-    public class Capacity : BaseEntity<Guid>
-    {
-        
-        public string CapacityCount { get; set; }
+    public class BodyType : BaseEntity<Guid>
+    {        
+        public string Name { get; set; }
     }
 }

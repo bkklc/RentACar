@@ -6,6 +6,6 @@ namespace RentACar.Application.Features.Brands.Dtos
 {
     public class GetAllBrandList
     {
-        public IList<BrandListItemDto> Items { get; set; }
+        public IList<BrandListItemDto> BrandLists { get; set; }
     }
 }

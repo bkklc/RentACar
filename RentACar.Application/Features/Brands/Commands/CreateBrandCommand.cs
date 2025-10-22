@@ -10,12 +10,12 @@ using System.Threading;
 
 namespace RentACar.Application.Features.Brands.Commands
 {
-    public class CreateBrandCommand : IRequest<CreatedBrandDto>
+    public class CreateBrandCommand : IRequest<CreateBrandDto>
     {
         public string Name { get; set; }
 
 
-        public class CreateBrandCommandHandler : IRequestHandler<CreateBrandCommand, CreatedBrandDto>
+        public class CreateBrandCommandHandler : IRequestHandler<CreateBrandCommand, CreateBrandDto>
         {
             private readonly IBrandRepository _brandRepository;
 
@@ -24,19 +24,19 @@ namespace RentACar.Application.Features.Brands.Commands
                 _brandRepository = brandRepository;
             }
 
-            public async Task<CreatedBrandDto> Handle(CreateBrandCommand request, CancellationToken cancellationToken)
+            public async Task<CreateBrandDto> Handle(CreateBrandCommand createBrandCommand, CancellationToken cancellationToken)
             {
                 var brand = new Brand
                 {
-                    Name = request.Name
+                    Name = createBrandCommand.Name
                 };
 
                 var createdBrand = await _brandRepository.AddAsync(brand);
 
-                var createdBrandDto = new CreatedBrandDto
+                var createdBrandDto = new CreateBrandDto
                 {
                     Id = createdBrand.Id,
-                    BrandName = createdBrand.Name,
+                    Name = createdBrand.Name,
                     CreatedDate = createdBrand.CreatedDate
                 };
 

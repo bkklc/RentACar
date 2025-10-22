@@ -12,18 +12,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Campaigns\Commands\" />
     <Folder Include="Features\Campaigns\Dtos\" />
     <Folder Include="Features\Campaigns\Queries\" />
-    <Folder Include="Features\Capacities\Commands\" />
-    <Folder Include="Features\Capacities\Dtos\" />
-    <Folder Include="Features\Capacities\Queries\" />
+    <Folder Include="Features\SeatCapacities\Commands\" />
+    <Folder Include="Features\SeatCapacities\Dtos\" />
+    <Folder Include="Features\SeatCapacities\Queries\" />
     <Folder Include="Features\Cars\Commands\" />
     <Folder Include="Features\Cars\Dtos\" />
     <Folder Include="Features\Cars\Queries\" />
-    <Folder Include="Features\Categories\Commands\" />
-    <Folder Include="Features\Categories\Dtos\" />
-    <Folder Include="Features\Categories\Queries\" />
     <Folder Include="Features\Cities\Commands\" />
     <Folder Include="Features\Cities\Dtos\" />
     <Folder Include="Features\Cities\Queries\" />

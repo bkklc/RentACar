@@ -5,8 +5,9 @@ using System.Text;
 
 namespace RentACar.Domain.Entities
 {
-    public class GearTypes : BaseEntity<Guid>
-    {        
-        public string GearType { get; set; }
+    public class SeatCapacity : BaseEntity<Guid>
+    {
+        
+        public int SeatCount { get; set; }
     }
 }

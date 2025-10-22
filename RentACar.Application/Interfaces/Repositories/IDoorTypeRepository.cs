@@ -6,7 +6,7 @@ using System.Text;
 
 namespace RentACar.Application.Interfaces.Repositories
 {
-    public interface IGearTypesRepository : IRepository<GearTypes, Guid>  
+    public interface IDoorTypeRepository : IRepository<DoorType, Guid>
     {
 
     }

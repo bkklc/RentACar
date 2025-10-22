@@ -21,20 +21,20 @@ namespace RentACar.Application.Features.Brands.Queries
                 _brandRepository = brandRepository;
             }
 
-            public async Task<GetAllBrandList> Handle(GetAllBrandQuery request, CancellationToken cancellationToken)
+            public async Task<GetAllBrandList> Handle(GetAllBrandQuery getAllBrandQuery, CancellationToken cancellationToken)
             {
                 var brands = await _brandRepository.GetAllAsync();
 
-                var response = new GetAllBrandList
+                var getAllBrandList = new GetAllBrandList
                 {
-                    Items = brands.Select(b => new BrandListItemDto
+                    BrandLists = brands.Select(b => new BrandListItemDto
                     {
                         Id = b.Id,
                         Name = b.Name
                     }).ToList()
                 };
 
-                return response;
+                return getAllBrandList;
 
 
 

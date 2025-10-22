@@ -23,14 +23,14 @@ namespace RentACar.Application.Features.Brands.Commands
                 _brandRepository = brandRepository;
             }
 
-            public async Task<UpdateBrandDto> Handle(UpdateBrandCommand request, CancellationToken cancellationToken)
+            public async Task<UpdateBrandDto> Handle(UpdateBrandCommand updateBrandCommand, CancellationToken cancellationToken)
             {
-                Brand brand =  _brandRepository.GetByIdAsync(request.Id).Result;
+                Brand brand =  _brandRepository.GetByIdAsync(updateBrandCommand.Id).Result;
 
                 if (brand == null)
                     throw new Exception("Brand not found");
 
-                brand.Name = request.Name;
+                brand.Name = updateBrandCommand.Name;
 
 
                 await _brandRepository.UpdateAsync(brand);

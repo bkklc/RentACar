@@ -7,6 +7,6 @@ namespace RentACar.Domain.Entities
 {
     public class FuelType : BaseEntity<Guid>
     {        
-        public string Fuel { get; set; }
+        public string Name { get; set; }
     }
 }

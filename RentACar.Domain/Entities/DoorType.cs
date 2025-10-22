@@ -5,8 +5,8 @@ using System.Text;
 
 namespace RentACar.Domain.Entities
 {
-    public class DoorTypes : BaseEntity<Guid>
+    public class DoorType : BaseEntity<Guid>
     {       
-        public string DoorCount { get; set; }
+        public int DoorCount { get; set; }
     }
 }
