@@ -6,7 +6,7 @@ using System.Text;
 
 namespace RentACar.Application
 {
-    public static class ApplicationServiceRegistiration
+    public static class ApplicationServiceRegistration
     {
 
         public static IServiceCollection AddApplicationServices(this IServiceCollection services)

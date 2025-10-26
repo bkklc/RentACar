@@ -36,7 +36,8 @@ namespace RentACar.Persistence.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
@@ -60,7 +61,8 @@ namespace RentACar.Persistence.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
@@ -84,7 +86,8 @@ namespace RentACar.Persistence.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
 
                     b.Property<decimal>("DiscountRate")
                         .HasColumnType("decimal(18,2)");
@@ -103,7 +106,8 @@ namespace RentACar.Persistence.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
@@ -173,7 +177,8 @@ namespace RentACar.Persistence.Migrations
 
                     b.Property<string>("Plate")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<Guid>("SeatCapacityId")
                         .HasColumnType("uniqueidentifier");
@@ -192,6 +197,28 @@ namespace RentACar.Persistence.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("BodyTypeId");
+
+                    b.HasIndex("BrandId");
+
+                    b.HasIndex("ColorId");
+
+                    b.HasIndex("DoorTypeId");
+
+                    b.HasIndex("FuelTypeId");
+
+                    b.HasIndex("GearTypeId");
+
+                    b.HasIndex("ModelId");
+
+                    b.HasIndex("ModelYearId");
+
+                    b.HasIndex("SeatCapacityId");
+
+                    b.HasIndex("SerieId");
+
+                    b.HasIndex("WheelDriveTypeId");
+
                     b.ToTable("Cars");
                 });
 
@@ -209,7 +236,8 @@ namespace RentACar.Persistence.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
@@ -233,7 +261,8 @@ namespace RentACar.Persistence.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
@@ -257,7 +286,8 @@ namespace RentACar.Persistence.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
@@ -287,23 +317,27 @@ namespace RentACar.Persistence.Migrations
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("LastName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
-                    b.Property<string>("PasswordHash")
+                    b.Property<string>("Password")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("PhoneNumber")
+                    b.Property<string>("Phone")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
@@ -321,7 +355,8 @@ namespace RentACar.Persistence.Migrations
 
                     b.Property<string>("AddressLine")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<Guid>("CityId")
                         .HasColumnType("uniqueidentifier");
@@ -332,20 +367,27 @@ namespace RentACar.Persistence.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<Guid>("CustomerId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("PostalCode")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("Id");
+
+                    b.HasIndex("CityId");
+
+                    b.HasIndex("CountryId");
+
+                    b.HasIndex("CustomerId");
 
                     b.ToTable("CustomerAddresses");
                 });
@@ -387,7 +429,8 @@ namespace RentACar.Persistence.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
@@ -411,7 +454,8 @@ namespace RentACar.Persistence.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
@@ -427,6 +471,9 @@ namespace RentACar.Persistence.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid>("BrandId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
@@ -435,15 +482,15 @@ namespace RentACar.Persistence.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("SerieId")
-                        .HasColumnType("uniqueidentifier");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("BrandId");
 
                     b.ToTable("Models");
                 });
@@ -460,12 +507,11 @@ namespace RentACar.Persistence.Migrations
                     b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<int>("Year")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -480,6 +526,9 @@ namespace RentACar.Persistence.Migrations
 
                     b.Property<DateTime?>("ActualReturnDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("CampaignId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("CarId")
                         .HasColumnType("uniqueidentifier");
@@ -513,6 +562,12 @@ namespace RentACar.Persistence.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CampaignId");
+
+                    b.HasIndex("CarId");
+
+                    b.HasIndex("CustomerId");
+
                     b.ToTable("Rentals");
                 });
 
@@ -545,23 +600,26 @@ namespace RentACar.Persistence.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("BrandId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<Guid>("ModelId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ModelId");
 
                     b.ToTable("Series");
                 });
@@ -580,7 +638,8 @@ namespace RentACar.Persistence.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
@@ -588,6 +647,258 @@ namespace RentACar.Persistence.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("WheelDriveTypes");
+                });
+
+            modelBuilder.Entity("RentACar.Domain.Entities.Car", b =>
+                {
+                    b.HasOne("RentACar.Domain.Entities.BodyType", "BodyType")
+                        .WithMany("Cars")
+                        .HasForeignKey("BodyTypeId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("RentACar.Domain.Entities.Brand", "Brand")
+                        .WithMany("Cars")
+                        .HasForeignKey("BrandId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("RentACar.Domain.Entities.Color", "Color")
+                        .WithMany("Cars")
+                        .HasForeignKey("ColorId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("RentACar.Domain.Entities.DoorType", "DoorType")
+                        .WithMany("Cars")
+                        .HasForeignKey("DoorTypeId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("RentACar.Domain.Entities.FuelType", "FuelType")
+                        .WithMany("Cars")
+                        .HasForeignKey("FuelTypeId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("RentACar.Domain.Entities.GearType", "GearType")
+                        .WithMany("Cars")
+                        .HasForeignKey("GearTypeId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("RentACar.Domain.Entities.Model", "Model")
+                        .WithMany("Cars")
+                        .HasForeignKey("ModelId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("RentACar.Domain.Entities.ModelYear", "ModelYear")
+                        .WithMany("Cars")
+                        .HasForeignKey("ModelYearId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("RentACar.Domain.Entities.SeatCapacity", "SeatCapacity")
+                        .WithMany("Cars")
+                        .HasForeignKey("SeatCapacityId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("RentACar.Domain.Entities.Serie", "Serie")
+                        .WithMany("Cars")
+                        .HasForeignKey("SerieId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("RentACar.Domain.Entities.WheelDriveType", "WheelDriveType")
+                        .WithMany("Cars")
+                        .HasForeignKey("WheelDriveTypeId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("BodyType");
+
+                    b.Navigation("Brand");
+
+                    b.Navigation("Color");
+
+                    b.Navigation("DoorType");
+
+                    b.Navigation("FuelType");
+
+                    b.Navigation("GearType");
+
+                    b.Navigation("Model");
+
+                    b.Navigation("ModelYear");
+
+                    b.Navigation("SeatCapacity");
+
+                    b.Navigation("Serie");
+
+                    b.Navigation("WheelDriveType");
+                });
+
+            modelBuilder.Entity("RentACar.Domain.Entities.CustomerAddress", b =>
+                {
+                    b.HasOne("RentACar.Domain.Entities.City", "City")
+                        .WithMany("Addresses")
+                        .HasForeignKey("CityId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("RentACar.Domain.Entities.Country", "Country")
+                        .WithMany("Addresses")
+                        .HasForeignKey("CountryId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("RentACar.Domain.Entities.Customer", "Customer")
+                        .WithMany("Addresses")
+                        .HasForeignKey("CustomerId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("City");
+
+                    b.Navigation("Country");
+
+                    b.Navigation("Customer");
+                });
+
+            modelBuilder.Entity("RentACar.Domain.Entities.Model", b =>
+                {
+                    b.HasOne("RentACar.Domain.Entities.Brand", "Brand")
+                        .WithMany("Models")
+                        .HasForeignKey("BrandId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Brand");
+                });
+
+            modelBuilder.Entity("RentACar.Domain.Entities.Rental", b =>
+                {
+                    b.HasOne("RentACar.Domain.Entities.Campaign", "Campaign")
+                        .WithMany("Rentals")
+                        .HasForeignKey("CampaignId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("RentACar.Domain.Entities.Car", "Car")
+                        .WithMany("Rentals")
+                        .HasForeignKey("CarId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("RentACar.Domain.Entities.Customer", "Customer")
+                        .WithMany("Rentals")
+                        .HasForeignKey("CustomerId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Campaign");
+
+                    b.Navigation("Car");
+
+                    b.Navigation("Customer");
+                });
+
+            modelBuilder.Entity("RentACar.Domain.Entities.Serie", b =>
+                {
+                    b.HasOne("RentACar.Domain.Entities.Model", "Model")
+                        .WithMany("Series")
+                        .HasForeignKey("ModelId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Model");
+                });
+
+            modelBuilder.Entity("RentACar.Domain.Entities.BodyType", b =>
+                {
+                    b.Navigation("Cars");
+                });
+
+            modelBuilder.Entity("RentACar.Domain.Entities.Brand", b =>
+                {
+                    b.Navigation("Cars");
+
+                    b.Navigation("Models");
+                });
+
+            modelBuilder.Entity("RentACar.Domain.Entities.Campaign", b =>
+                {
+                    b.Navigation("Rentals");
+                });
+
+            modelBuilder.Entity("RentACar.Domain.Entities.Car", b =>
+                {
+                    b.Navigation("Rentals");
+                });
+
+            modelBuilder.Entity("RentACar.Domain.Entities.City", b =>
+                {
+                    b.Navigation("Addresses");
+                });
+
+            modelBuilder.Entity("RentACar.Domain.Entities.Color", b =>
+                {
+                    b.Navigation("Cars");
+                });
+
+            modelBuilder.Entity("RentACar.Domain.Entities.Country", b =>
+                {
+                    b.Navigation("Addresses");
+                });
+
+            modelBuilder.Entity("RentACar.Domain.Entities.Customer", b =>
+                {
+                    b.Navigation("Addresses");
+
+                    b.Navigation("Rentals");
+                });
+
+            modelBuilder.Entity("RentACar.Domain.Entities.DoorType", b =>
+                {
+                    b.Navigation("Cars");
+                });
+
+            modelBuilder.Entity("RentACar.Domain.Entities.FuelType", b =>
+                {
+                    b.Navigation("Cars");
+                });
+
+            modelBuilder.Entity("RentACar.Domain.Entities.GearType", b =>
+                {
+                    b.Navigation("Cars");
+                });
+
+            modelBuilder.Entity("RentACar.Domain.Entities.Model", b =>
+                {
+                    b.Navigation("Cars");
+
+                    b.Navigation("Series");
+                });
+
+            modelBuilder.Entity("RentACar.Domain.Entities.ModelYear", b =>
+                {
+                    b.Navigation("Cars");
+                });
+
+            modelBuilder.Entity("RentACar.Domain.Entities.SeatCapacity", b =>
+                {
+                    b.Navigation("Cars");
+                });
+
+            modelBuilder.Entity("RentACar.Domain.Entities.Serie", b =>
+                {
+                    b.Navigation("Cars");
+                });
+
+            modelBuilder.Entity("RentACar.Domain.Entities.WheelDriveType", b =>
+                {
+                    b.Navigation("Cars");
                 });
 #pragma warning restore 612, 618
         }

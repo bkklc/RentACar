@@ -1,12 +1,12 @@
-﻿using RentACar.Core.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace RentACar.Domain.Entities
+namespace RentACar.Application.Features.Campaigns.Dtos
 {
-    public class Campaign  : BaseEntity<Guid>
+    public class CreateCampaignDto
     {
+        public Guid Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public decimal DiscountRate { get; set; }
@@ -15,7 +15,6 @@ namespace RentACar.Domain.Entities
         public bool IsActive { get; set; }
         public int? MinRentalDays { get; set; }
         public int? MaxRentalDays { get; set; }
-        public List<Rental> Rentals { get; set; } = new();
-
+        public DateTime CreatedDate { get; set; }
     }
 }

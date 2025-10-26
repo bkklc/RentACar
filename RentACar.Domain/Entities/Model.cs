@@ -7,7 +7,11 @@ namespace RentACar.Domain.Entities
 {
     public class Model : BaseEntity<Guid>
     {        
-        public Guid SerieId { get; set; }
+        public Guid BrandId { get; set; }
         public string Name { get; set; }
+
+        public Brand Brand { get; set; }
+        public List<Serie> Series { get; set; } = new();
+        public List<Car> Cars { get; set; } = new();
     }
 }

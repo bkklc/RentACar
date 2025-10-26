@@ -9,5 +9,6 @@ namespace RentACar.Domain.Entities
     {
         
         public int SeatCount { get; set; }
+        public List<Car> Cars { get; set; } = new();
     }
 }

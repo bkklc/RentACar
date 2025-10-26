@@ -12,7 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Campaigns\Dtos\" />
     <Folder Include="Features\Campaigns\Queries\" />
     <Folder Include="Features\SeatCapacities\Commands\" />
     <Folder Include="Features\SeatCapacities\Dtos\" />

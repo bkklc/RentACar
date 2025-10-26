@@ -8,5 +8,6 @@ namespace RentACar.Domain.Entities
     public class WheelDriveType : BaseEntity<Guid>
     {        
         public string Name { get; set; }
+        public List<Car> Cars { get; set; } = new();
     }
 }

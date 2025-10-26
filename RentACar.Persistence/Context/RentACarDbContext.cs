@@ -9,9 +9,7 @@ namespace RentACar.Persistence.Context
     public class RentACarDbContext : DbContext
     {
         public RentACarDbContext(DbContextOptions<RentACarDbContext> options) : base(options)
-        {
-
-        }
+        {        }
 
         public DbSet<Brand> Brands { get; set; }
         public DbSet<BodyType> BodyTypes { get; set; }
@@ -34,6 +32,7 @@ namespace RentACar.Persistence.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(RentACarDbContext).Assembly);
             base.OnModelCreating(modelBuilder);
             
         }
