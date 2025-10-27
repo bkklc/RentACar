@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using AutoMapper;
+using MediatR;
 using Microsoft.EntityFrameworkCore.Metadata;
 using RentACar.Application.Features.Brands.Dtos;
 using RentACar.Application.Interfaces.Repositories;
@@ -18,29 +19,19 @@ namespace RentACar.Application.Features.Brands.Commands
         public class CreateBrandCommandHandler : IRequestHandler<CreateBrandCommand, CreateBrandDto>
         {
             private readonly IBrandRepository _brandRepository;
+            private readonly IMapper _mapper;
 
-            public CreateBrandCommandHandler(IBrandRepository brandRepository)
+            public CreateBrandCommandHandler(IBrandRepository brandRepository, IMapper mapper)
             {
                 _brandRepository = brandRepository;
+                _mapper = mapper;
             }
 
             public async Task<CreateBrandDto> Handle(CreateBrandCommand createBrandCommand, CancellationToken cancellationToken)
             {
-                var brand = new Brand
-                {
-                    Name = createBrandCommand.Name
-                };
-
-                var createdBrand = await _brandRepository.AddAsync(brand);
-
-                var createdBrandDto = new CreateBrandDto
-                {
-                    Id = createdBrand.Id,
-                    Name = createdBrand.Name,
-                    CreatedDate = createdBrand.CreatedDate
-                };
-
-                return createdBrandDto;
+                Brand brand = _mapper.Map<Brand>(createBrandCommand);
+                Brand createdBrand = await _brandRepository.AddAsync(brand);
+                return _mapper.Map<CreateBrandDto>(createdBrand);
             }
         }
     }

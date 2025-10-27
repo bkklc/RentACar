@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using AutoMapper;
+using MediatR;
 using RentACar.Application.Features.BodyTypes.Dtos;
 using RentACar.Application.Interfaces.Repositories;
 using System;
@@ -7,31 +8,24 @@ using System.Text;
 
 namespace RentACar.Application.Features.BodyTypes.Queries
 {
-    public class GetAllBodyTypeQuery : IRequest<GetAllBodyTypeList>
+    public class GetAllBodyTypeQuery : IRequest<List<GetAllBodyTypeListDto>>
     {
-
-        public class GetAllBodyTypeQueryHandler : IRequestHandler<GetAllBodyTypeQuery, GetAllBodyTypeList>
+        public class GetAllBodyTypeQueryHandler : IRequestHandler<GetAllBodyTypeQuery, List<GetAllBodyTypeListDto>>
         {
             private readonly IBodyTypeRepository _bodyTypeRepository;
-            public GetAllBodyTypeQueryHandler(IBodyTypeRepository bodyTypeRepository)
+            private readonly IMapper _mapper;
+
+            public GetAllBodyTypeQueryHandler(IBodyTypeRepository bodyTypeRepository, IMapper mapper)
             {
                 _bodyTypeRepository = bodyTypeRepository;
+                _mapper = mapper;
             }
-            public async Task<GetAllBodyTypeList> Handle(GetAllBodyTypeQuery getAllBodyTypeQuery, CancellationToken cancellationToken)
+
+            public async Task<List<GetAllBodyTypeListDto>> Handle(GetAllBodyTypeQuery request, CancellationToken cancellationToken)
             {
                 var bodyTypes = await _bodyTypeRepository.GetAllAsync();
-                var getAllBodyTypeList = new GetAllBodyTypeList
-                {
-                    BodyTypeLists = bodyTypes.Select(bt => new BodyTypeListItemDto
-                    {
-                        Id = bt.Id,
-                        Name = bt.Name
-                    }).ToList()
-                };
-                return getAllBodyTypeList;
-
+                return _mapper.Map<List<GetAllBodyTypeListDto>>(bodyTypes);
             }
-
         }
     }
 }

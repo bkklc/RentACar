@@ -4,8 +4,9 @@ using System.Text;
 
 namespace RentACar.Application.Features.Brands.Dtos
 {
-    public class GetAllBrandList
+    public class GetAllBrandListDto
     {
-        public IList<BrandListItemDto> BrandLists { get; set; }
+        public Guid Id { get; set; }
+        public string Name { get; set; }
     }
 }

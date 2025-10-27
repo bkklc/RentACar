@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using AutoMapper;
+using MediatR;
 using RentACar.Application.Features.BodyTypes.Dtos;
 using RentACar.Application.Interfaces.Repositories;
 using RentACar.Domain.Entities;
@@ -17,31 +18,20 @@ namespace RentACar.Application.Features.BodyTypes.Commands
         {
 
             private readonly IBodyTypeRepository _bodyTypeRepository;
+            private readonly IMapper _mapper;
 
-            public CreateBodyTypeCommandHandler(IBodyTypeRepository bodyTypeRepository)
+            public CreateBodyTypeCommandHandler(IBodyTypeRepository bodyTypeRepository, IMapper mapper)
             {
                 _bodyTypeRepository = bodyTypeRepository;
+                _mapper = mapper;
             }
 
             public async Task<CreateBodyTypeDto> Handle(CreateBodyTypeCommand createBodyTypeCommand, CancellationToken cancellationToken)
             {
 
-                var  bodyType = new BodyType
-                {
-                    Name = createBodyTypeCommand.Name,
-                };
-
-                var createdBodyType = await _bodyTypeRepository.AddAsync(bodyType);
-
-                var createdBodyTypeDto = new CreateBodyTypeDto
-                {
-                    Id = createdBodyType.Id,
-                    Name = createdBodyType.Name,
-                    CreatedDate = createdBodyType.CreatedDate
-                };
-
-
-                return createdBodyTypeDto;
+                BodyType bodyType = _mapper.Map<BodyType>(createBodyTypeCommand);
+                BodyType createdBodyType = await _bodyTypeRepository.AddAsync(bodyType);
+                return _mapper.Map<CreateBodyTypeDto>(createdBodyType);
             }
         }
 

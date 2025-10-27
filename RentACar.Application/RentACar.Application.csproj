@@ -12,9 +12,21 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Campaigns\Queries\" />
+    <Folder Include="Features\Cars\Profiles\" />
+    <Folder Include="Features\Cities\Profiles\" />
+    <Folder Include="Features\Colors\Profiles\" />
+    <Folder Include="Features\Countries\Profiles\" />
+    <Folder Include="Features\CustomerAddresses\Profiles\" />
+    <Folder Include="Features\Customers\Profiles\" />
+    <Folder Include="Features\DoorTypes\Profiles\" />
+    <Folder Include="Features\FuelTypes\Profiles\" />
+    <Folder Include="Features\GearTypes\Profiles\" />
+    <Folder Include="Features\Models\Profiles\" />
+    <Folder Include="Features\ModelYears\Profiles\" />
+    <Folder Include="Features\Rentals\Profiles\" />
     <Folder Include="Features\SeatCapacities\Commands\" />
     <Folder Include="Features\SeatCapacities\Dtos\" />
+    <Folder Include="Features\SeatCapacities\Profiles\" />
     <Folder Include="Features\SeatCapacities\Queries\" />
     <Folder Include="Features\Cars\Commands\" />
     <Folder Include="Features\Cars\Dtos\" />
@@ -52,16 +64,19 @@
     <Folder Include="Features\Rentals\Queries\" />
     <Folder Include="Features\Series\Commands\" />
     <Folder Include="Features\Series\Dtos\" />
+    <Folder Include="Features\Series\Profiles\" />
     <Folder Include="Features\Series\Queries\" />
     <Folder Include="Features\WheelDriveTypes\Commands\" />
     <Folder Include="Features\WheelDriveTypes\Dtos\" />
+    <Folder Include="Features\WheelDriveTypes\Profiles\" />
     <Folder Include="Features\WheelDriveTypes\Queries\" />
     <Folder Include="Features\ModelYears\Commands\" />
     <Folder Include="Features\ModelYears\Queries\" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="MediatR" Version="13.0.0" />
+    <PackageReference Include="AutoMapper" Version="15.1.0" />
+    <PackageReference Include="MediatR" Version="13.1.0" />
   </ItemGroup>
 
 </Project>

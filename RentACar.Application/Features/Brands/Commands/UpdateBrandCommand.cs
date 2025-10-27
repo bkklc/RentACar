@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using AutoMapper;
+using MediatR;
 using RentACar.Application.Features.Brands.Dtos;
 using RentACar.Application.Interfaces.Repositories;
 using RentACar.Domain.Entities;
@@ -17,29 +18,26 @@ namespace RentACar.Application.Features.Brands.Commands
         public class UpdateBrandCommandHandler : IRequestHandler<UpdateBrandCommand, UpdateBrandDto>
         {
             private readonly IBrandRepository _brandRepository;
+            private readonly IMapper _mapper;
 
-            public UpdateBrandCommandHandler(IBrandRepository brandRepository)
+            public UpdateBrandCommandHandler(IBrandRepository brandRepository, IMapper mapper)
             {
                 _brandRepository = brandRepository;
+                _mapper = mapper;
             }
 
             public async Task<UpdateBrandDto> Handle(UpdateBrandCommand updateBrandCommand, CancellationToken cancellationToken)
             {
-                Brand brand =  _brandRepository.GetByIdAsync(updateBrandCommand.Id).Result;
+                Brand? brand = await _brandRepository.GetByIdAsync(updateBrandCommand.Id);
 
                 if (brand == null)
                     throw new Exception("Brand not found");
 
-                brand.Name = updateBrandCommand.Name;
-
+                _mapper.Map(updateBrandCommand, brand);
 
                 await _brandRepository.UpdateAsync(brand);
-                UpdateBrandDto updateBrandDto = new()
-                {
-                    Id = brand.Id,                    
-                    Name = brand.Name,                   
-                };
-                return updateBrandDto;
+
+                return _mapper.Map<UpdateBrandDto>(brand);
             }
         }
 

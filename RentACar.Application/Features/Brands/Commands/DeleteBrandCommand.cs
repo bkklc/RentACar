@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using AutoMapper;
+using MediatR;
 using RentACar.Application.Features.Brands.Dtos;
 using RentACar.Application.Interfaces.Repositories;
 using RentACar.Domain.Entities;
@@ -17,23 +18,24 @@ namespace RentACar.Application.Features.Brands.Commands
         {
 
             private readonly IBrandRepository _brandRepository;
+            private readonly IMapper _mapper;
 
-            public DeleteBrandCommandHandler(IBrandRepository brandRepository)
+            public DeleteBrandCommandHandler(IBrandRepository brandRepository, IMapper mapper)
             {
                 _brandRepository = brandRepository;
+                _mapper = mapper;
             }
 
             public async Task<DeleteBrandDto> Handle(DeleteBrandCommand deleteBrandCommand, CancellationToken cancellationToken)
             {
-                Brand brand = _brandRepository.GetByIdAsync(deleteBrandCommand.Id).Result;
+                Brand brand = await _brandRepository.GetByIdAsync(deleteBrandCommand.Id);
+
+                if (brand == null)
+                    throw new Exception("Brand not found");
+
                 await _brandRepository.DeleteAsync(brand);
-                DeleteBrandDto deleteBrandDto = new()
-                {
-                    Id = brand.Id,
-                    Name = brand.Name,
-                    DeletedDate = DateTime.UtcNow
-                };
-                return deleteBrandDto;
+
+                return _mapper.Map<DeleteBrandDto>(brand);
             }
         }
 

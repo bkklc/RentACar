@@ -1,8 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
 using System.Reflection;
-using System.Text;
+using AutoMapper;
+
 
 namespace RentACar.Application
 {
@@ -18,8 +17,13 @@ namespace RentACar.Application
 
             });
 
+            services.AddAutoMapper(cfg => { }, Assembly.GetExecutingAssembly());
+
+
+
 
             return services;
         }
     }
 }
+

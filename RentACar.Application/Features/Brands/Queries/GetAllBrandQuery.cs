@@ -1,47 +1,28 @@
-﻿using MediatR;
+﻿using AutoMapper;
+using MediatR;
 using RentACar.Application.Features.Brands.Dtos;
 using RentACar.Application.Interfaces.Repositories;
-using RentACar.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace RentACar.Application.Features.Brands.Queries
 {
-    public class GetAllBrandQuery : IRequest<GetAllBrandList>
+    public class GetAllBrandQuery : IRequest<List<GetAllBrandListDto>>
     {
-
-        public class GetAllBrandQueryHandler : IRequestHandler<GetAllBrandQuery, GetAllBrandList>
+        public class GetAllBrandQueryHandler : IRequestHandler<GetAllBrandQuery, List<GetAllBrandListDto>>
         {
-
             private readonly IBrandRepository _brandRepository;
+            private readonly IMapper _mapper;
 
-            public GetAllBrandQueryHandler(IBrandRepository brandRepository)
+            public GetAllBrandQueryHandler(IBrandRepository brandRepository, IMapper mapper)
             {
                 _brandRepository = brandRepository;
+                _mapper = mapper;
             }
 
-            public async Task<GetAllBrandList> Handle(GetAllBrandQuery getAllBrandQuery, CancellationToken cancellationToken)
+            public async Task<List<GetAllBrandListDto>> Handle(GetAllBrandQuery request, CancellationToken cancellationToken)
             {
                 var brands = await _brandRepository.GetAllAsync();
-
-                var getAllBrandList = new GetAllBrandList
-                {
-                    BrandLists = brands.Select(b => new BrandListItemDto
-                    {
-                        Id = b.Id,
-                        Name = b.Name
-                    }).ToList()
-                };
-
-                return getAllBrandList;
-
-
-
-
+                return _mapper.Map<List<GetAllBrandListDto>>(brands);
             }
-            
         }
-
     }
 }

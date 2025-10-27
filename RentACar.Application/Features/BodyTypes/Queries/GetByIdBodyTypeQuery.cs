@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using AutoMapper;
+using MediatR;
 using RentACar.Application.Features.BodyTypes.Dtos;
 using RentACar.Application.Interfaces.Repositories;
 using RentACar.Domain.Entities;
@@ -16,23 +17,22 @@ namespace RentACar.Application.Features.BodyTypes.Queries
         public class GetByIdBodyTypeQueryHandler : IRequestHandler<GetByIdBodyTypeQuery, GetByIdBodyTypeDto>
         {
             private readonly IBodyTypeRepository _bodyTypeRepository;
+            private readonly IMapper _mapper;
 
-            public GetByIdBodyTypeQueryHandler(IBodyTypeRepository bodyTypeRepository)
+            public GetByIdBodyTypeQueryHandler(IBodyTypeRepository bodyTypeRepository, IMapper mapper)
             {
                 _bodyTypeRepository = bodyTypeRepository;
+                _mapper = mapper;
             }
 
             public async Task<GetByIdBodyTypeDto> Handle(GetByIdBodyTypeQuery getByIdBodyTypeQuery, CancellationToken cancellationToken)
             {
                 BodyType bodyType = await _bodyTypeRepository.GetByIdAsync(getByIdBodyTypeQuery.Id);
 
-                GetByIdBodyTypeDto getByIdBodyTypeDto = new()
-                {
-                    Id = bodyType.Id,
-                    Name = bodyType.Name
-                };
+                if (bodyType == null)
+                    throw new Exception("BodyType not found");
 
-                return getByIdBodyTypeDto;
+                return _mapper.Map<GetByIdBodyTypeDto>(bodyType);
 
             }
         }

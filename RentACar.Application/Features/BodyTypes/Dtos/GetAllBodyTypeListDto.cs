@@ -4,8 +4,9 @@ using System.Text;
 
 namespace RentACar.Application.Features.BodyTypes.Dtos
 {
-    public class GetAllBodyTypeList
+    public class GetAllBodyTypeListDto
     {
-        public IList<BodyTypeListItemDto> BodyTypeLists { get; set; }
+        public Guid Id { get; set; }
+        public string Name { get; set; }
     }
 }
